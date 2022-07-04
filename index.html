@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <title>
+        How to use web share API for native 
+        share options in HTML and JavaScript?
+    </title>
+</head>
+  
+<body style="text-align: center;">
+  <p><button>Share MDN!</button></p>
+<p class="result"></p>
+
+    <script>
+    const shareData = {
+  title: 'اقساط هاتف ',
+  text: '500*12شهر',
+}
+
+const btn = document.querySelector('button');
+const resultPara = document.querySelector('.result');
+
+// Share must be triggered by "user activation"
+btn.addEventListener('click', async () => {
+    await navigator.share(shareData)
+});
+
+    </script>
+</body>
+  
+</html>
