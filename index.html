@@ -1,33 +1,65 @@
 <!DOCTYPE html>
 <html>
-  
+
 <head>
-    <title>
-        How to use web share API for native 
-        share options in HTML and JavaScript?
-    </title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <style>
+    body{
+      min-height: 70vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    input{
+      margin: 10px;
+      padding: 10px 5px;
+      border-radius: 20px;
+      font-size: 25px
+    }
+    .myp{
+      border-radius: 20px;
+      background-color: darkgray;
+      min-height: 40px;
+      width: 300px;
+      font-size: 30px;
+      font-weight: bold;
+      text-align: center;
+      word-wrap: break-word;
+      padding: 5px 10px;
+    }
+    .btn-share{
+      border-radius: 20px;
+      background-color: lightblue;
+      padding: 10px 20px;
+      font-weight: bold;
+    }
+  </style>
 </head>
+
+<body>
+    <input class="text1" type="text" oninput="inputs();">
+    <input class="num1" type="number" oninput="inputs();">
+    <p class="myp"></p>
+    <div class="btn-share">مشاركة</div>
   
-<body style="text-align: center;">
-  <p><button>Share MDN!</button></p>
-<p class="result"></p>
-
-    <script>
-    let manth = 'عدد الشهور';
-    const shareData = {
-  title: 'اقساط هاتف ',
-  text: manth, 
-}
-
-const btn = document.querySelector('button');
-const resultPara = document.querySelector('.result');
-
-// Share must be triggered by "user activation"
-btn.addEventListener('click', async () => {
-    await navigator.share(shareData)
-});
-
-    </script>
+  <script>
+    function inputs(){
+    let text1 = document.querySelector('.text1').value;
+    let num1 = document.querySelector('.num1').value;
+    let myp = document.querySelector('.myp').innerText = text1 + ' ' + num1;
+    
+    let shareData = {
+        text: myp,
+         }
+    let btnShare = document.querySelector('.btn-share');
+    btnShare.addEventListener('click', async () => {
+    await navigator.share(shareData);
+    });
+  }
+  </script>
 </body>
-  
+
 </html>
