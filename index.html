@@ -53,8 +53,8 @@
     
     let shareData = {
         text: myp,
-         }
-    }
+         };
+    };
     let btnShare = document.querySelector('.btn-share');
     btnShare.addEventListener('click', async () => {
     await navigator.share(shareData);
