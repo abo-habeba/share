@@ -46,21 +46,26 @@
     <div class="btn-share">مشاركة</div>
   
   <script>
+
     let shareData = {};
+
     function inputs(){
     let text1 = document.querySelector('.text1').value;
     let num1 = document.querySelector('.num1').value;
     let myp = document.querySelector('.myp').innerText = text1 + ' ' + num1;
-    
-    let shareData = {
+     shareData = {
         text: myp,
-         };
-    };
-    let btnShare = document.querySelector('.btn-share');
+         }
+   
+  }
+
+  let btnShare = document.querySelector('.btn-share');
     btnShare.addEventListener('click', async () => {
     await navigator.share(shareData);
-    });
-  
+  });
+
+
+
   </script>
 </body>
 
